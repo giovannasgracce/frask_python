@@ -3,7 +3,7 @@ from flask import render_template
 from flask import request
 import requests
 import json
-link = "https://flasktintgiovanna-default-rtdb.firebaseio.com/"
+link = "https://flasktintgiovanna-default-rtdb.firebaseio.com"
 
 @app.route('/')
 @app.route('/index')
@@ -30,43 +30,66 @@ def cadastrarUsuario():
         return 'Cadastrado com sucesso!'
     except Exception as e:
         return f'Ocorreu um erro\n +{e}'
+
 @app.route('/listar')
 def listarTudo():
     try:
         requisicao = requests.get(f'{link}/cadastro/.json')
         dicionario = requisicao.json()
         return dicionario
-
     except Exception as e:
-        return f'Ocorreu um erro\n {e}'
+        return f'Algo deu errado\n +{e}'
 
-@app.route('/listarIndividual')
-def listarIndividual():
+
+@app.route('/listarIndividual', methods=['POST'])
+def listarIndividual(cpf):
     try:
-        requisicao = requests.get(f'{link}/cadastro/.json')#solicita dado
-        dicionario = requisicao.json()
-        idCadastro = "" #coletar o id
+        requesicao = requests.get(f'{link}/cadastro/.json')
+        dicionario = requesicao.json()
         for codigo in dicionario:
-            chave  = dicionario[codigo]['cpf']
-            if chave == '15224556':
+            chave = dicionario[codigo]['cpf']
+            if chave == cpf:
                 idCadastro = codigo
                 return idCadastro
     except Exception as e:
-        return f'Ocorreu um erro\n {e}'
+        return f'Algo deu errado\n {e}'
 
 @app.route('/atualizar')
 def atualizar():
+    return render_template('/cadastroAtualizar.html', titulo="Atualizar")
+
+@app.route('/cadastroAtualizar', methods=['POST'])
+def atualizarCadastro():
     try:
-       dados = {"nome":"joão"}
-       requisicao = requests.patch(f'{link}/cadastro/-O8mmJGFyi2rbMAU_oR_/.json', data=json.dumps(dados))
-       return "Atualizado com sucesso !"
+        cpf = request.form.get("cpfAtualizar")
+        nome = request.form.get("nome")
+        telefone = request.form.get("telefone")
+        endereco = request.form.get("endereco")
+
+        dados = {"nome": nome, "telefone": telefone, "endereco": endereco}
+        idCadastro = listarIndividual(cpf)
+        requisicao = requests.patch(f'{link}/cadastro/{idCadastro}/.json', data = json.dumps(dados))
+        return render_template('cadastroAtualizar.html', titulo="Atualizar cadastro")
     except Exception as e:
         return f'Ocorreu um erro\n {e}'
+
+
+
+
 
 @app.route('/excluir')
 def excluir():
     try:
-       requisicao = requests.delete(f'{link}/cadastro/-O8mmJGFyi2rbMAU_oR_/.json')
-       return "Excluido com sucesso !"
+        requisicao = requests.get(f'{link}/cadastro/.json')  # solicita dado
+        cpf = request.form.get("cpfExcluir")
+        idCadastro = listarIndividual(cpf)
+        requisicao = requests.delete(f'{link}/cadastro/{idCadastro}/.json')
+        return "Excluido com sucesso !"
     except Exception as e:
-        return f'Ocorreu um erro\n {e}'
+         return f'Ocorreu um erro\n {e}'
+
+
+
+
+
+
