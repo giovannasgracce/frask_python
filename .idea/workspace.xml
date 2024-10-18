@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3014ec6c-08a6-4834-a768-5fe922dc6488" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/templates/cadastroAtualizar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/excluir.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/flaskTINT01.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/individual.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/cadastro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/contato.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/contato.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/cadastroAtualizar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/cadastroAtualizar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/excluir.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/excluir.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

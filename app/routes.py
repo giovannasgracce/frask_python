@@ -41,11 +41,12 @@ def listarTudo():
         return f'Algo deu errado\n +{e}'
 
 
-@app.route('/listarIndividual', methods=['POST'])
+@app.route('/listarIndividual')
 def listarIndividual(cpf):
     try:
         requesicao = requests.get(f'{link}/cadastro/.json')
         dicionario = requesicao.json()
+        idCadastro = ''
         for codigo in dicionario:
             chave = dicionario[codigo]['cpf']
             if chave == cpf:
@@ -53,6 +54,23 @@ def listarIndividual(cpf):
                 return idCadastro
     except Exception as e:
         return f'Algo deu errado\n {e}'
+
+
+
+
+@app.route('/individual', methods=['GET', 'POST'])
+def individual():
+    idCadastro = None
+    try:
+        if request.method == 'POST':
+            cpf = request.form.get("cpfConsulta")
+            dados = {"cpf": cpf}
+            idCadastro = listarIndividual(cpf)
+            requisicao = requests.get(f'{link}/cadastro/{idCadastro}/.json', data=json.dumps(dados))
+        return render_template('individual.html', titulo="Consultar Individual", idCadastro=idCadastro)
+    except Exception as e:
+        return f'Ocorreu um erro\n {e}'
+
 
 @app.route('/atualizar')
 def atualizar():
@@ -75,21 +93,19 @@ def atualizarCadastro():
 
 
 
-
-
-@app.route('/excluir')
+@app.route('/excluir', methods=['GET', 'POST'])
 def excluir():
-    try:
-        requisicao = requests.get(f'{link}/cadastro/.json')  # solicita dado
-        cpf = request.form.get("cpfExcluir")
-        idCadastro = listarIndividual(cpf)
-        requisicao = requests.delete(f'{link}/cadastro/{idCadastro}/.json')
-        return "Excluido com sucesso !"
-    except Exception as e:
-         return f'Ocorreu um erro\n {e}'
+    if request.method == 'POST':
+        try:
+            cpf = request.form.get("cpfExcluir")
+            dados = {"cpf": cpf}
+            idCadastro = listarIndividual(cpf)
+            requisicao = requests.delete(f'{link}/cadastro/{idCadastro}/.json', data=json.dumps(dados))
 
+            return render_template('excluir.html', titulo="Excluir", sucesso=True)
+        except Exception as e:
+            return f'Ocorreu um erro\n {e}'
 
-
-
+    return render_template('excluir.html', titulo="Excluir")
 
 
