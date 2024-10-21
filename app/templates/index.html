@@ -77,13 +77,18 @@
         height: 20%;
     }
 
+    .logo {
+         height: 100px;
+         margin-right: 20px;
+     }
+
 </style>
 
 </head>
 <body>
     <header>
         <div class="banner">
-         <a class="navbar-brand" href="#">Navbar</a>
+          <img src="{{url_for('static', filename='Logotipo_Monograma_Nail_Designer_Rosê_e_Preto__1_-removebg-preview.png')}}" alt="Logo" class="logo">
         </div>
     </header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -118,7 +123,17 @@
 </nav>
 
     <main>
-        <p>Conteúdo principal da página.</p>
+       <section>
+           <br><h2>Bem-vindo ao Sistema Crod</h2>
+             <p>Este é um sistema de gestão de dados simples e eficiente, onde você pode cadastrar, atualizar, conferir e deletar itens de forma prática. Use os botões acima para começar a gerenciar seus dados!</p>
+           <br><br><h2>Como usar o Crod</h2>
+            <br><ol>
+            <p><strong>Para Cadastrar:</strong> Clique em "Cadastrar" no menu e preencha o formulário com as informações do item.</p>
+            <p><strong>Para Atualizar:</strong> Vá até "Atualizar", escolha o item que deseja modificar e edite as informações necessárias.</p>
+            <p><strong>Para Conferir:</strong> Use "Conferir" para visualizar todos os itens cadastrados no sistema.</p>
+            <p><strong>Para Deletar:</strong> Vá até "Deletar", selecione o item e confirme a exclusão.</p>
+            </ol>
+            </section>
     </main>
 
     <footer>

@@ -1,29 +1,32 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-  <form action="/excluir" method="POST">
-      <label>CPF: </label>
-      <input type="text" name="cpfExcluir" id="cpfExcluir"/><br><br>
-    <!-- Button trigger modal -->
-  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-   EXCLUIR
-  </button>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Excluir Cadastro</h2>
+    <form action="/excluir" method="POST" class="bg-pink p-4 rounded shadow" style="max-width: 400px; margin: auto;">
+        <div class="mb-3">
+            <label for="cpfExcluir" class="form-label">CPF:</label>
+            <input type="text" name="cpfExcluir" id="cpfExcluir" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-outline-danger w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Excluir
+        </button>
+    </form>
 
     <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">EXCLUIDO COM SUCESSO</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Excluído com Sucesso</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">ok</button>
-        </div>
-      </div>
     </div>
-  </div>
-  </form>
-</body>
-</html>
-
+</div>
 {% endblock %}
+

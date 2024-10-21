@@ -70,20 +70,12 @@
         width: 100%;
         height: 7%;
         position: fixed;
-    }
-
-
-
-    form button{
-         margin-top: 15px;
-         text-align:center;
-         margin-left:10%
+        margin-top:10%;
     }
 
   form{
         margin-left: 40%;
-        margin-top:8%;
-
+        margin-bottom:5%;
     }
 
     form input {
@@ -95,15 +87,58 @@
         border-color:black;
     }
 
+    H1{
+       text-align:center;
+       margin-top: 15px;
+    }
 
+    .logo {
+         height: 70px;
+         margin-right: 20px;
+     }
 
+    .bg-pink {
+            background-color: #CD5C5C;
+        }
+
+        .form-control {
+            font-size: 0.9rem;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #d32f2f;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .bg-light-pink {
+
+            background-color: #CD5C5C;
+        }
+
+        .logo {
+         height: 100px;
+         margin-right: 20px;
+       }
 </style>
 
 </head>
 <body>
     <header>
         <div class="banner">
-         <a class="navbar-brand" href="#">Navbar</a>
+          <img src="{{url_for('static', filename='Logotipo_Monograma_Nail_Designer_Rosê_e_Preto__1_-removebg-preview.png')}}" alt="Logo" class="logo">
         </div>
     </header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -136,7 +171,6 @@
     </div>
   </div>
 </nav>
-
 
     <footer>
         <p>© 2024 stecker's. Todos os direitos reservados.</p>

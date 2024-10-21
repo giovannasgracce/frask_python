@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-<form action="/individual" method="POST">
-<label>CPF: </label>
-<input type="text" name="cpfConsulta" id="cpf1"/><br><br>
- 
-    <button type="submit">Consultar Individual</button><br><br>
-</form>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Consultar Individual</h2>
+    <form action="/individual" method="POST" class="bg-pink p-4 rounded shadow" style="max-width: 400px; margin: auto;">
+        <div class="mb-3">
+            <label for="cpf1" class="form-label">CPF:</label>
+            <input type="text" name="cpfConsulta" id="cpf1" class="form-control" required />
+        </div>
 
-{% if idCadastro %}
-<p>ID do Cadastro: {{ idCadastro }}</p>
+        <button type="submit" class="btn btn-outline-danger w-100">Consultar</button>
+    </form>
 
-{% endif %}
+    {% if idCadastro %}
+        <div class="mt-4">
+            <p class="text-center">ID do Cadastro: <strong>{{ idCadastro }}</strong></p>
+        </div>
+    {% endif %}
+</div>
+
 {% endblock %}
-
- 

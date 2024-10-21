@@ -1,38 +1,46 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-  <form action="/cadastrarUsuario" method="POST">
-    <label>CPF: </label>
-    <input type="text" name="cpf" id="cpf"/><br><br>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Cadastro de Usuário</h2>
+    <form action="/cadastrarUsuario" method="POST" class="bg-light-pink p-4 rounded shadow" style="max-width: 400px; margin: auto;">
+        <div class="mb-3">
+            <label for="cpf" class="form-label">CPF:</label>
+            <input type="text" name="cpf" id="cpf" class="form-control" required />
+        </div>
 
-    <label>Nome: </label>
-    <input type="text" name="nome" id="nome"/><br><br>
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome:</label>
+            <input type="text" name="nome" id="nome" class="form-control" required />
+        </div>
 
-     <label>Telefone: </label>
-    <input type="text" name="telefone" id="telefone"/><br><br>
+        <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone:</label>
+            <input type="text" name="telefone" id="telefone" class="form-control" required />
+        </div>
 
-     <label>Endereço: </label>
-    <input type="text" name="endereco" id="endereco"/><br><br>
+        <div class="mb-3">
+            <label for="endereco" class="form-label">Endereço:</label>
+            <input type="text" name="endereco" id="endereco" class="form-control" required />
+        </div>
 
-       <!-- Button trigger modal -->
-    <button type="submit" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-     cadastrar
-    </button>
+        <button type="submit" class="btn btn-outline-danger w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Cadastrar
+        </button>
+    </form>
 
-</form>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">CADASTRADO COM SUCESSO</h1>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">ok</button>
-          </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrado com Sucesso</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
+</div>
 
-
-  </form>
 {% endblock %}
